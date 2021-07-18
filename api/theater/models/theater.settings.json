@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "theaters",
+  "info": {
+    "name": "Theater",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Theater_Name": {
+      "type": "string",
+      "required": true
+    },
+    "Theater_Description": {
+      "type": "richtext",
+      "required": true
+    },
+    "Theater_Photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "Theater_Operator": {
+      "type": "enumeration",
+      "enum": [
+        "Vox",
+        "Muvi",
+        "AMC",
+        "Empire",
+        "Reel",
+        "Novo",
+        "Cinepolis"
+      ],
+      "required": true
+    },
+    "screens": {
+      "via": "theater",
+      "collection": "screen"
+    },
+    "snacks": {
+      "via": "theater",
+      "collection": "snaks"
+    },
+    "Theater_location": {
+      "type": "json"
+    }
+  }
+}

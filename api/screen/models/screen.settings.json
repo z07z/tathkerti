@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "screens",
+  "info": {
+    "name": "Screen",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Screen_Number": {
+      "type": "string",
+      "required": true
+    },
+    "Type_Experience": {
+      "type": "enumeration",
+      "enum": [
+        "Standerd",
+        "IMAX",
+        "MAX",
+        "Doulby"
+      ],
+      "required": true,
+      "default": "Standerd"
+    },
+    "theater": {
+      "via": "screens",
+      "model": "theater"
+    }
+  }
+}

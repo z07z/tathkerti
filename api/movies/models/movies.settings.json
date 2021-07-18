@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "movies",
+  "info": {
+    "name": "Movies",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Movie_Title": {
+      "type": "string",
+      "required": true
+    },
+    "Movie_Description": {
+      "type": "richtext",
+      "required": true
+    },
+    "Rating": {
+      "type": "enumeration",
+      "enum": [
+        "R",
+        "PG",
+        "G"
+      ],
+      "required": true
+    },
+    "Movie_Poster": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "Language": {
+      "type": "enumeration",
+      "enum": [
+        "English",
+        "Arabic",
+        "Hindi"
+      ],
+      "required": true
+    },
+    "Trailers": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "Release_date": {
+      "type": "date",
+      "required": true
+    },
+    "Genre": {
+      "type": "enumeration",
+      "enum": [
+        "Action",
+        "Drama",
+        "Comedy",
+        "Fantasy",
+        "Thriller",
+        "SyFy",
+        "Horror",
+        "Romance",
+        "Mystery"
+      ]
+    },
+    "screens": {
+      "collection": "screen"
+    }
+  }
+}

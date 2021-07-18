@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "snaks",
+  "info": {
+    "name": "Snacks",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Snak_Name": {
+      "type": "string",
+      "required": true
+    },
+    "Product_Photot": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "theater": {
+      "via": "snacks",
+      "model": "theater"
+    },
+    "Size": {
+      "type": "enumeration",
+      "enum": [
+        "S",
+        "M",
+        "L"
+      ]
+    },
+    "Price": {
+      "type": "decimal"
+    }
+  }
+}
